@@ -1,3 +1,11 @@
+def include_zomg_gems(conf)
+  conf.gem File.expand_path(File.dirname(__FILE__)) + "/startlib"
+  #conf.gem "gems/zomg"
+  #conf.gem "gems/zomg2"
+  #conf.gem "gems/zomg3"
+  #conf.gem "gems/zomg4"
+end
+
 MRuby::Build.new do |conf|
   # load specific toolchain settings
 
@@ -80,6 +88,7 @@ MRuby::Build.new do |conf|
 
   # bintest
   # conf.enable_bintest
+  include_zomg_gems(conf)
 end
 
 MRuby::Build.new('host-debug') do |conf|
@@ -105,6 +114,7 @@ MRuby::Build.new('host-debug') do |conf|
 
   # bintest
   # conf.enable_bintest
+  include_zomg_gems(conf)
 end
 
 MRuby::Build.new('test') do |conf|
@@ -120,6 +130,7 @@ MRuby::Build.new('test') do |conf|
   conf.enable_test
 
   conf.gembox 'default'
+  include_zomg_gems(conf)
 end
 
 # Define cross build settings
